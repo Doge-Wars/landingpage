@@ -100,6 +100,13 @@ h1, h2, h3, h4, h5, h6 {
     left: 50%;
 }
 
+@media (orientation: portrait) {
+    .crawl {
+        width: 95%;
+        transform: translateX(-50%) perspective(300px) rotateX(8deg);
+    }
+}
+
 .crawl:after {    
     position: absolute;
     content: ' ';
