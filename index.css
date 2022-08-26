@@ -29,11 +29,14 @@ h1, h2, h3, h4, h5, h6 {
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
-    animation: opening 6s ease-out 1s;
     color: rgb(75, 213, 238);
     font-weight: 400;
     font-size: 300%;
     opacity: 0;
+}
+
+.opening.active {
+    animation: opening 6s ease-out 1s;
 }
 
 @keyframes opening {
@@ -58,8 +61,11 @@ h1, h2, h3, h4, h5, h6 {
     transform: translate(-50%, -50%);
     z-index: 1;
     margin: auto;
-    animation: logo 9s ease-out 9s;
     opacity: 0;
+}
+
+.logo.active {
+    animation: logo 9s ease-out 9s;
 }
 
 .logo img {
@@ -121,9 +127,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .content {
-    animation: scroll 100s linear 16s;
     position: absolute;
     top: 100%;
+}
+
+.content.active {
+    animation: scroll 100s linear 16s;
 }
   
   
@@ -134,4 +143,28 @@ h1, h2, h3, h4, h5, h6 {
     100% {
         top: -170%;
     }
+}
+
+.play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    opacity: 1;
+    padding: .3em 1.5em;
+    border-radius: 5em;
+    border: 5px solid #FFE81F;
+    background: transparent;
+    color: #FFE81F;
+    font-family: inherit;
+    font-size: 3em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background .3s ease-in-out, color .3s ease-in-out;
+}
+
+.play:hover {
+    background: #FFE81F;
+    color: black;
 }

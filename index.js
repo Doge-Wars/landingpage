@@ -13,7 +13,8 @@ var setStars = function(){
     var xy = getRandomPosition();
         star.style.top = xy[0] + 'px';
         star.style.left = xy[1] + 'px';
-    document.body.append(star);
+    var container = document.querySelector('.stars');
+    container.appendChild(star);
     }
 
     // Gets random x, y values based on the size of the container
@@ -29,16 +30,29 @@ var setStars = function(){
 var audio = new Howl({
     src: ['./theme.m4a'],
     preload: true,
+    onplayerror: function() {
+        audio.once('unlock', function() {
+          audio.play();
+        });
+      }
   });
 
     window.onload = function() {
         setStars();
         var logo = document.querySelector('.logo');
-        // var audio = document.querySelector('.audio');
-        // var audio = new Audio('./theme.m4a');
+        var opening = document.querySelector('.opening');
+        var content = document.querySelector('.content');
+        var button = document.querySelector('.play');
 
         logo.addEventListener('animationstart', (event) => {
             audio.play();
+        });
+
+        button.addEventListener('click', (event) => {
+            logo.classList.add('active');
+            opening.classList.add('active');
+            content.classList.add('active');
+            event.currentTarget.style.display = 'none';
         });
     }
     window.onresize = function() {
