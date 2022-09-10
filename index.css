@@ -176,3 +176,22 @@ h1, h2, h3, h4, h5, h6 {
 .replay {
     display: none;
 }
+
+header {
+    text-align: right;
+    padding: 10px;
+}
+
+a.social {
+    text-decoration: none;
+}
+
+a.social svg {
+    width: 40px;
+    margin: 20px 20px 0 0;
+    transition: fill .3s ease-in-out;
+}
+
+a.social:hover svg {
+    fill: #fff;
+}
