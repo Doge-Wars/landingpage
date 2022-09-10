@@ -42,18 +42,34 @@ var audio = new Howl({
         var logo = document.querySelector('.logo');
         var opening = document.querySelector('.opening');
         var content = document.querySelector('.content');
-        var button = document.querySelector('.play');
+        var button = document.querySelector('.firstplay');
+        var replay = document.querySelector('.replay');
 
         logo.addEventListener('animationstart', (event) => {
             audio.play();
         });
 
-        button.addEventListener('click', (event) => {
-            logo.classList.add('active');
-            opening.classList.add('active');
-            content.classList.add('active');
-            event.currentTarget.style.display = 'none';
-        });
+        var callback = (event) => {
+            replay.style.display = 'none';
+            audio.stop();
+            logo.classList.remove('active');
+            opening.classList.remove('active');
+            content.classList.remove('active');
+            
+            setTimeout(() => {
+                logo.classList.add('active');
+                opening.classList.add('active');
+                content.classList.add('active');
+            }, 100);
+
+            button.style.display = 'none';
+            setTimeout(() => {
+                replay.style.display = 'block';
+            }, 85000);
+        }
+
+        button.addEventListener('click', callback);
+        replay.addEventListener('click', callback);
     }
     window.onresize = function() {
         setStars();
