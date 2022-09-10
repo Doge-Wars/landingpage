@@ -44,6 +44,7 @@ var audio = new Howl({
         var content = document.querySelector('.content');
         var button = document.querySelector('.firstplay');
         var replay = document.querySelector('.replay');
+        var question = document.querySelector('.question');
 
         logo.addEventListener('animationstart', (event) => {
             audio.play();
@@ -62,7 +63,7 @@ var audio = new Howl({
                 content.classList.add('active');
             }, 100);
 
-            button.style.display = 'none';
+            question.style.display = 'none';
             setTimeout(() => {
                 replay.style.display = 'block';
             }, 85000);
